@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 양식</title>
+</head>
+<body>
+    <header>
+        <h1>설문조사 양식</h1>
+        <p>모든 항목에 빠짐없이 체크해주세요</p>
+    </header>
+    <hr>
+    <main>
+        <form>
+            <!-- 개인정보 수집 -->
+            <fieldset>
+                <legend>개인정보</legend>
+                <label for="name">이름</label>
+                <input type="text" placeholder="이름을 입력해주세요" id="name" name="name">
+                <br></br>
+                <label for="email">이메일</label>
+                <input type="email" placeholder="이메일을 입력해주세요" id="email" name="email">
+                <br><br>
+                <label for="pw">비밀번호</label>
+                <input type="password" placeholder="비밀번호를 설정해주세요" id="pw" name="pw">
+            </fieldset>
+            <br>
+            <!-- 설문 내용 -->
+            <fieldset>
+                <legend>설문 내용</legend>
+                <!-- 성별 -->
+                <p>성별이 어떻게 되십니까?</p>
+                <input type="radio" id="man" name="gender">
+                <label for="man">남성</label>
+                <input type="radio" id="woman" name="gender">
+                <label for="woman">여성</label>
+                <input type="radio" id="none" name="gender">
+                <label for="none">선택안함</label>
+                <!-- 연령 -->
+                <p>연령대가 어떻게 되십니까?</p>
+                <input type="radio" id="teen" name="age">
+                <label for="teen">10대</label>
+                <input type="radio" id="twenty" name="age">
+                <label for="twenty">20대</label>
+                <input type="radio" id="thirty" name="age">
+                <label for="thirty">30대</label>
+                <input type="radio" id="fourty" name="age">
+                <label for="fourty">40대</label>
+                <input type="radio" id="fifty" name="age">
+                <label for="fifty">50대</label>
+                <input type="radio" id="other" name="age">
+                <label for="other">기타</label>
+                <!-- 선택지 -->
+                <p>좋아하는 동물은 어떻게 되십니까?(중복선택 가능)</p>
+                <input type="checkbox" id="dog" name="animal">
+                <label for="dog">강아지</label>
+                <input type="checkbox" id="cat" name="animal">
+                <label for="cat">고양이</label>
+                <!-- checked는 selected처럼 미리 선택될 input 요소 명시 -->
+                <input type="checkbox" id="panda" name="animal" checked>
+                <label for="panda">판다</label>
+                <input type="checkbox" id="rabbit" name="animal">
+                <label for="rabbit">토끼</label>
+                <input type="checkbox" id="tiger" name="animal">
+                <label for="tiger">호랑이</label>
+                <input type="checkbox" class="otherAnimal" name="animal">
+                <label for="otherAniaml">기타</label>
+                <input type="text" class="otherAnimal" name="animal">
+            </fieldset>
+            <br>
+            <!-- 기타 의견 -->
+            <fieldset>
+                <legend>선택 사유</legend>
+                <textarea rows="3" cols="40" name="comment"></textarea>
+            </fieldset>
+            <br>
+            <!-- 제출 input요소 : submit -->
+            <input type="submit">
+            <!-- 초기화 input요소 : reset -->
+            <input type="reset">
+            <!-- 기타 참조 : https://tcpschool.com/html-tags/input -->
+        </form>
+    </main>
+    <br>
+    <hr>
+    <footer>
+       <p>수고하셨습니다.</p> 
+    </footer>
+</body>
+</html>
