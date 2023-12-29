@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+
+<body>
+    <header>
+        <p>회원가입</p>
+    </header>
+    <main>
+        <form action="#" method="#">
+            <fieldset>
+                <legend>필수 입력 사항</legend>
+                <ul>
+                    <li>
+                        <lable for="name">이름</lable>
+                        <input type="text" placeholder="이름을 입력하세요" id="name" name="name">
+                    </li>
+                    <br>
+                    <li>
+                        <lable for="id">아이디</lable>
+                        <input type="text" placeholder="20자 미만 공백 없이 입력하세요" id="id" name="id" maxlength="20">
+                    </li>
+                    </li>
+                    <br>
+                    <li>
+                        <label for="pw">비밀번호</label>
+                        <input type="password" placeholder="대소문자로 입력해주세요" id="pw" name="pw">
+                    </li>
+                    <br>
+                    <li>
+                        <label for="email">이메일</label>
+                        <input type="email" placeholder="hello@hello.com" id="email" name="email">
+                    </li>
+                    <br>
+                    <li>
+                        <label for="mobile">휴대폰</label>
+                        <input type="tel" placeholder="000-0000-0000" id="mobile" name="mobile">
+                    </li>
+                    <br>
+                    <li>
+                        <lable for="birth">생년월일</lable>
+                        <input type="date" id="birth" name="birth">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>사전 설문 조사</legend>
+                <p>아래의 설문조사를 완료해주셔야 회원가입이 완료됩니다.</p>
+                <br>
+                <p><mark>성별</mark></p>
+                <input type="radio" id="man" name="gender">
+                <label for="man">남성</label>
+                <input type="radio" id="woman" name="gender">
+                <label for="woman">여성</label>
+                <input type="radio" id="none" name="gender">
+                <label for="none">선택안함</label>
+                <hr>
+
+                <p><mark>나이</mark></p>
+                <input type="radio" id="teen" name="age">
+                <label for="teen">10대</label>
+                <input type="radio" id="twenty" name="age">
+                <label for="twenty">20대</label>
+                <input type="radio" id="thirty" name="age">
+                <label for="thirty">30대</label>
+                <input type="radio" id="fourty" name="age">
+                <label for="fourty">40대</label>
+                <input type="radio" id="fifty" name="age">
+                <label for="fifty">50대</label>
+                <input type="radio" id="other" name="age">
+                <label for="other">그 외</label>
+                <hr>
+
+                <p><mark>국가</mark></p>
+                <select size="5">
+                    <option disabled>국가를 선택해주세요</option>
+                    <option value="korea" selected>대한민국</option>
+                    <option value="japan">일본</option>
+                    <option value="chian">중국</option>
+                    <option value="usa">미국</option>
+                    <option value="uk">영국</option>
+                    <option value="italy">이탈리아</option>
+                    <option value="spain">스페인</option>
+                    <option value="aus">호주</option>
+                    <option value="mongolia">몽골</option>
+                    <option value="brazil">브라질</option>
+                    <option value="india">인도</option>
+                    <option value="otherCountry">기타</option>
+                </select>
+                <hr>
+
+                <p><mark>취미(중복 선택 가능)</mark></p>
+                <input type="checkbox" id="coding" name="hobby">
+                <label for="coding">코딩</label>
+                <input type="checkbox" id="workout" name="hobby">
+                <label for="workout">운동</label>
+                <input type="checkbox" id="reading" name="hobby">
+                <label for="reading">독서</label>
+                <input type="checkbox" id="travel" name="hobby">
+                <label for="travel">여행</label>
+                <input type="checkbox" id="movie" name="hobby">
+                <label for="movie">영화보기</label>
+                <input type="checkbox" class="otherHobby" name="hobby">
+                <label for="otherHobby">기타</label>
+                <input type="text" class="otherHobby" name="hobby">
+                <hr>
+
+                <input type="submit">
+                <input type="reset">
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <p>회원이 된 것을 환영합니다🤗<br>&copy; KISEON </p>
+    </footer>
+</body>
+
+</html>
