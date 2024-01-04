@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #eec6ff;
+}
+
+.container {
+    width: 95%;
+    height: 400px;
+    background-color: #ffffff;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.content-main_side {
+    width: 30%;
+    height: 100%;
+    background-color: #d579fc;
+}
+
+.content-main_icon {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img[alt *="스마일"] {
+    width: 50px;
+    height: 50px;
+}
+
+#main-title {
+    margin-top: 25px;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.content-main_side_menu {
+    text-align: center;
+    margin-top: 30px;
+    line-height: 50px;
+}
+
+.content-main_menu:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.content-main_menu:active {
+    background-color: rgb(250, 249, 233);
+}
+
+#main-title+p {
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+img[alt ^="메뉴"] {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 8px;
+    filter: invert(70%) sepia(89%) saturate(1054%) hue-rotate(340deg);
+}
+
+img[alt ^="메뉴"]+p {
+    color: orange;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* 오른쪽 화면 */
+.content-main_intro {
+    width: 70%;
+    height: 100%;
+    text-align: center;
+}
+
+.intro-header {
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.intro-header>h3 {
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+.intro-header>p {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.intro-form {
+    width: 100%;
+    height: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+}
+
+.personal_info {
+    margin-top: 30px;
+}
+
+.personal_info>label {
+    margin-left: 20px;
+    color: orange;
+    font-weight: 900
+}
+
+.personal_info>input {
+    width: 200px;
+    height: 50px;
+    border: 1px solid #d579fc;
+    padding: 15px;
+}
+
+.comment_box {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.comment_box>textarea {
+    width: 80%;
+    height: 100px;
+    border: 1px solid #d579fc;
+    font-size: 18px;
+    padding: 10px;
+    resize: none;
+}
+
+.comment_box>#submit_btn {
+    width: 80px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid orange;
+    margin-left: 5px;
+}
+
+.comment_box>#submit_btn:hover {
+    background-color: orange;
+    color: #fff;
+    cursor: pointer;
+}
+
+.comment_box>#submit_btn:active {
+    border: 1px solid rgb(247, 177, 49);
+    background-color: rgb(247, 177, 49);
+}
+
+.outline:focus{
+    outline: none;
+}
