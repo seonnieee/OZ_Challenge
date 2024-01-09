@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+p {
+    background-color: palegreen;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto 20px;
+    font-size: 20px;
+    line-height: 50px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+p::before {
+    content: "";
+    border-right: 13px solid palegreen;
+    border-bottom: 13px solid transparent;
+    position: relative;
+    top: 13px;
+    right: 5px;
+}
+
+.screen-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 1000px 이상일 때 */
+@media screen and (min-width: 1000px) {
+    body {
+        background-color: gold;
+    }
+
+    .width-max {
+        width: 100%;
+        margin: 200px auto 0px;
+        text-align: center;
+    }
+
+    .width-max-middle,
+    .width-middle, .width-small {
+        display: none;
+    }
+}
+
+/* 800px 이상 1000px 미만일 때 */
+@media screen and (min-width: 800px) and (max-width: 999px){
+    body{
+        background-color: pink;
+    }
+    
+    .width-max-middle {
+    width: 100%;
+    margin: 200px auto 0px;
+    text-align: center;
+    }
+
+    .width-max, 
+    .width-middle, .width-small{
+        display: none;
+    }
+}
+
+/* 600px 이상 800px 미만일 때 */
+@media screen and (min-width: 600px) and (max-width: 799px){
+    body{
+        background-color: tomato;
+    }
+
+    .width-middle{
+        width: 100%;
+        margin: 200px auto 0px;
+        text-align: center;
+    }
+
+    .width-max, .width-max-middle, .width-small{
+        display: none;
+    }
+}
+
+/* 600px 미만일 때 */
+@media screen and (max-width: 599px){
+    body{
+        background-color: skyblue;
+    }
+
+    .width-small{
+        width: 100%;
+        margin: 200px auto 0px;
+        text-align: center;
+    }
+
+    .width-max, .width-max-middle, .width-middle{
+        display: none;
+    }
+}
