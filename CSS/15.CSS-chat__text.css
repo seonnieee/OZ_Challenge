@@ -1,0 +1,72 @@
+.chat-text__box{
+    padding: 0;
+    list-style: none;
+}
+
+.chat-text__left{
+    background-color: pink;
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    left: 20px;
+
+}
+.chat-text__left::before{
+    content:"";
+    border-right: 16px solid pink;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    top: 5px;
+    left: -10px;
+}
+.chat-text__right{
+    background-color: skyblue;
+    width: 280px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    display: block;
+    left: calc(100% - 300px);
+}
+.chat-text__right::after{
+    content: "";
+    border-left: 16px solid skyblue;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+
+}
+.chat-text__right > img{
+    margin-top: 20px;
+}
+
+/* transition */
+.chat-text__left:hover{
+    background-color: rgb(253, 142, 161);
+    cursor: pointer;
+    transition: 0.3s 0s linear;
+}
+.chat-text__left:hover::before{
+    border-right: 16px solid rgb(253, 142, 161);
+    transition: 0.3s 0s linear;
+}
+
+.chat-text__right:hover{
+    background-color: rgb(63, 196, 249);
+    cursor:pointer;
+    transition: 0.3s 0s linear;
+}
+.chat-text__right:hover::after{
+    border-left: 16px solid rgb(63, 196, 249);
+    transition: 0.3s 0s linear;
+}
