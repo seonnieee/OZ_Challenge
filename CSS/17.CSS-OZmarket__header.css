@@ -1,0 +1,113 @@
+header.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.header-content{
+    width: 100%;
+    max-width: 75rem;
+    height: 4rem;
+    padding: 0.75rem 1rem;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.header-content__logo{
+    color: purple;
+    font-size: 2rem;
+    font-weight: 900;
+    height: 1em;
+    margin-right: 40px;
+    line-height: 40px;
+}
+
+.header-content__nav{
+    align-items: center;
+    padding: 0.2rem 0 0;
+    flex-grow : 1;
+}
+.header-content__nav ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+.header-content__nav ul li{
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    
+}
+
+.header-content__nav ul li.active{
+    color: purple;
+}
+.header-content__nav ul li:hover{
+    color: rgb(81, 0, 81);
+    cursor: pointer;
+}
+
+/* 서치 */
+.header-content__search{
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content__search .search{
+    width: 17rem;
+    height: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #f2f3f6;
+    border: none;
+    border-radius: 0.0375rem;
+    font-size: 1rem;
+}
+
+.header-content__search .chat{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border: 0.5px solid #c5c6c9;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    margin-left: 0.58rem;
+}
+
+.header-content__search .icon{
+    margin-right: 1rem;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: none;
+}
+
+.header-content__search .glass img,
+.header-content__search .menu label img{
+    width: 30px;
+    height: 30px;
+}
+
+@media screen and (max-width: 1192px){
+    .header-content__search .search{
+        display: none;
+    }
+    .header-content__search .glass{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 948px){
+    .header-content__search .chat,
+    .header-content__nav {
+        display: none;
+    }
+
+    .header-content__search .menu{
+        display: block;
+    }
+}
