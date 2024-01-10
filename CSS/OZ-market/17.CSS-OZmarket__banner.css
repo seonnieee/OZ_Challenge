@@ -1,0 +1,64 @@
+.banner{
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 0.4rem;
+    height: 9rem;
+    position: relative;
+}
+.banner__img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.banner__img img{
+    width: 100%;
+    height: 100%;
+}
+.banner__dark{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 배너 텍스트 */
+.banner__text{
+    width: 95%;
+    position:absolute;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.banner__text{
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+.banner__button{
+    margin: 0;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background-color: rgb(243, 138, 243);
+    color: #ffffff;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.banner__button:hover{
+    background-color: rgb(193, 88, 193);
+    transition: 1.5s ease-out;
+}
+
+@media screen and (max-width: 768px){
+    .banner__text{
+        flex-direction: column;
+        font-size: 1rem;
+    }
+    .banner__button{
+        max-width: 10rem;
+        margin-top: 0.8rem;
+    }
+}
