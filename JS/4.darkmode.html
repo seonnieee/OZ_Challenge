@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크모드 만들기</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            height: 100%;
+        }
+        html {
+            margin: 0;
+            height: 100%;
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+        .btn__box {
+            display: inline-block;
+            margin: 10px 0 0 20px;
+        }
+        .btn__box button {
+            padding: 20px 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="btn__box">
+            <button id="light" onclick="whiteMode()">LIGHT</button>
+            <button id="dark" onclick="darkMode()">DARK</button>
+        </div>
+    </div>
+
+    <script>
+        let container = document.getElementById('container');
+
+        function darkMode() {
+            container.style.backgroundColor = "black";
+        };
+
+        function whiteMode() {
+            container.style.backgroundColor = "white";
+        }
+    </script>
+
+</body>
+
+</html>
