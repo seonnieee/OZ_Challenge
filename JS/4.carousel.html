@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐러셀</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .carousel__wrap{
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .carousel{
+            width: 500px;
+            display: flex;
+            transition: transform 0.5s; 
+        }
+        img {
+            width: 500px;
+            height: 500px;
+        }
+        button{
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="carousel__wrap">
+            <div class="carousel">
+                <img src="https://contents-cdn.viewus.co.kr/image/2023/08/CP-2023-0056/image-7adf97c8-ef11-4def-81e8-fe2913667983.jpeg"
+                    alt="슬라이드1" id="firstImg">
+                <img src="https://img5.yna.co.kr/etc/inner/KR/2023/10/13/AKR20231013148700005_07_i_P2.jpg" alt="슬라이드2" id="secondImg">
+                <img src="https://blog.kakaocdn.net/dn/bq7aS9/btqSIYWoFWc/uECunLf1LkTa3jkXKtQkO0/img.jpg" alt="슬라이드3" id="thirdImg">
+                <img src="https://image.jtbcplus.kr/data/contents/jam_photo/202306/10/5ebc5232-e43c-4f9c-83ae-66ff5679726a.jpg"
+                    alt="슬라이드4" id="fourthImg">
+            </div>
+        </div>
+        <button class="first">FIRST</button>
+        <button class="second">SECOND</button>
+        <button class="third">THIRD</button>
+        <button class="fourth">FOURTH</button>
+    </div>
+
+
+    <script>
+        const firstBtn = document.querySelector('.first');
+        const secondBtn = document.querySelector('.second');
+        const thridBtn = document.querySelector('.third');
+        const fourthBtn = document.querySelector('.fourth');
+        const carousel = document.querySelector('.carousel');
+
+        firstBtn.addEventListener('click', function(){
+            carousel.style.transform = 'translate(0px)';
+        })
+
+        secondBtn.addEventListener('click', function(){
+            carousel.style.transform = 'translate(-500px)';
+        })
+
+        thridBtn.addEventListener('click', function(){
+            carousel.style.transform = 'translate(-1000px)';
+        })
+
+        fourthBtn.addEventListener('click', function(){
+            carousel.style.transform = 'translate(-1500px)'
+        })
+
+    </script>
+</body>
+
+</html>
