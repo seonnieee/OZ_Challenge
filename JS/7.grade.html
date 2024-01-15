@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적표</title>
+    <style>
+        th, td{
+            border: 1px solid #000;
+            padding: 0px 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(193, 238, 193);
+        }
+        #score{
+            font-weight: 900;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>나의 성적표는?</h1>
+    <p>성적표 기준은 아래와 같습니다.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>점수</th>
+                <th>90이상</th>
+                <th>80~89점</th>
+                <th>70~79점</th>
+                <th>60~69점</th>
+                <th>60점 미만</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>학점</th>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>F</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>나의 성적은 다음과 같습니다</p>
+    <p id="score"></p>
+
+    <script>
+        let score = document.getElementById('score');
+        let grade = prompt('점수를 입력하세요.');
+
+        let result;
+        if(grade >= 90){
+            result = 'A';
+        }else if(grade >= 80){
+            result = 'B';
+        }else if(grade >= 70){
+            result = 'C';
+        }else if(grade >= 60){
+            result = 'D'
+        }else{
+            result = 'F'
+        }
+
+        console.log(result);
+
+        score.textContent =`내 점수는 ${grade}이고, 등급은 ${result}입니다.`;
+    </script>
+</body>
+
+</html>
