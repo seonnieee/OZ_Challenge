@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+
+<body>
+    <h1>가위바위보 게임</h1>
+    <p>가위, 바위, 보 중 하나를 입력하세요</p>
+    <input type="text" id="text">
+    <button id="resultBtn">결과 확인</button>
+    <p id="resultText"></p>
+    <button id="resetBtn">다시하기</button>
+
+    <script>
+        const text = document.querySelector('#text');
+        const resultBtn = document.querySelector("#resultBtn");
+        const resultText = document.querySelector("#resultText");
+        const resetBtn = document.querySelector("#resetBtn");
+
+        const rpsArray = ["바위", "보", "가위"];
+
+        resultBtn.addEventListener("click", function () {
+
+            let pcSelect = rpsArray[Math.floor(Math.random() * 3)];
+            console.log(pcSelect);
+
+            let userSelect = text.value;
+            let resultmsg;
+
+            if (pcSelect === userSelect) {
+                resultmsg = "비겼습니다😌"
+            } else if (
+                (userSelect === "바위" && pcSelect === "가위") ||
+                (userSelect === "보" && pcSelect === "바위") ||
+                (userSelect === "가위" && pcSelect === "보")
+            ) {
+                resultmsg = "이겼습니다🥰"
+            } else {
+                resultmsg = "졌습니다🥲"
+            }
+
+            resultText.textContent = `당신의 선택 : ${userSelect} / 컴퓨터의 선택 : ${pcSelect} / 결과 : ${resultmsg}`
+
+        });
+
+        resetBtn.addEventListener("click", function () {
+            resultText.innerHTML = "";
+        });
+
+    </script>
+</body>
+
+</html>
