@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할일 목록 만들기</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .app {
+            position: relative;
+            width: 320px;
+            height: 568px;
+            border-radius: 16px;
+            background-color: rgb(171, 193, 209);
+        }
+
+        .app>h1 {
+            font-size: 2em;
+            text-align: center;
+            margin: 10px 5px;
+            border-bottom: 0.5px solid rgb(234, 234, 234);
+        }
+
+        ul {
+            max-height: 420px;
+            overflow: auto;
+        }
+
+        ul>li {
+            cursor: pointer;
+            position: relative;
+            left: 60px;
+            list-style-type: none;
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 6px;
+            background-color: rgb(254, 229, 77);
+            border-radius: 8px;
+        }
+
+        ul>li::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-bottom: 16px solid transparent;
+            border-left: 16px solid rgb(254, 229, 77);
+        }
+
+        ul>li>span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background-color: rgb(234, 234, 234);
+            position: absolute;
+            left: -20px;
+            bottom: 2px;
+        }
+
+        form {
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 0;
+        }
+
+        input {
+            font-size: 1.4em;
+            margin: 0;
+            border: none;
+            height: 45px;
+        }
+
+        input[type="text"] {
+            width: 240px;
+            padding-left: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            width: 80px;
+            border-radius: 8px;
+            background-color: rgb(254, 229, 77);
+        }
+
+        .done {
+            color: rgb(93, 93, 93);
+            background-color: rgb(234, 234, 234);
+        }
+
+        .done::after {
+            border-left: 16px solid rgb(234, 234, 234);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="app">
+            <h1>TO DO LIST</h1>
+            <ul id="todo-list"></ul>
+            <form id="todo-form">
+                <input type="text" name="todo" placeholder="TO DO..." autocomplete="off">
+                <input type="submit" value="추가">
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const todoList = document.getElementById("todo-list");
+        const todoForm = document.getElementById("todo-form");
+        let todoArr = []; // 입력된 할일 목록을 담을 빈배열
+
+        // 로컬 스토리지 저장하기
+        function saveTodos() {
+            const todoString = JSON.stringify(todoArr);
+            localStorage.setItem("myTodos", todoString);
+        }
+
+        // 로컬 스토리지 가져오기
+        function loadTodos() {
+            const myTodos = localStorage.getItem("myTodos");
+            todoArr = JSON.parse(myTodos);
+            displayTodos();
+        }
+        loadTodos();
+
+
+        // 할일 삭제하기
+        function handleTodoDelBtnclick(clickedId) {
+            todoArr = todoArr.filter(function (aTodo) {
+                return aTodo.todoId !== clickedId
+            });
+            displayTodos();
+            saveTodos();
+        }
+
+
+        // 할일 수정하기
+        function handleTodoItemClick(clickedId) {
+            todoArr = todoArr.map(function (aTodo) {
+                if (aTodo.todoId === clickedId) {
+                    return {
+                        ...aTodo, todoDone: !aTodo.todoDone
+                    }
+                } else {
+                    return aTodo
+                }
+            });
+            displayTodos();
+            saveTodos();
+        }
+
+
+
+        // 할일 보여주기
+        function displayTodos() {
+            todoList.innerHTML = "";
+            todoArr.forEach(function (aTodo) {
+                // 할일 목록 생성
+                const todoItem = document.createElement("li");
+                // 삭제 버튼 생성
+                const todoDelBtn = document.createElement("span");
+                todoDelBtn.textContent = "X";
+                todoDelBtn.title = "클릭하면 삭제됨";
+                todoItem.textContent = aTodo.todoText;
+                todoItem.title = "클릭하면 완료됨";
+
+                if (aTodo.todoDone) {
+                    todoItem.classList.add("Done");
+                } else {
+                    todoItem.classList.add("yet");
+                }
+
+                todoItem.addEventListener("click", function () {
+                    handleTodoItemClick(aTodo.todoId);
+                })
+
+                todoDelBtn.addEventListener("click", function () {
+                    handleTodoDelBtnclick(aTodo.todoId);
+                })
+
+                todoItem.appendChild(todoDelBtn);
+                todoList.appendChild(todoItem);
+            })
+        }
+
+
+        // submit 버튼 입력 시, 할일 추가하기
+        todoForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const toBeAdded = { // 객체로 받아오기
+                todoText: todoForm.todo.value, // todoText의 값을 input에 입력한 값으로 받아옴
+                todoId: new Date().getTime(), // 아이디를 등록된 시간으로 설정
+                todoDone: false
+            }
+            todoForm.todo.value = ""; // 입력 후 todo의 입력내용을 빈칸으로 변경
+            todoArr.push(toBeAdded); // toBeAdded 객체를 빈배열값으로 넣기
+            displayTodos();
+            saveTodos();
+            console.log(todoArr);
+        })
+
+    </script>
+</body>
+
+</html>
